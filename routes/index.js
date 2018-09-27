@@ -6,9 +6,8 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
 
-router.post('/auto', function (req, res, next) {
-  res.send({
-  "body": [{
+router.get('/auto', function (req, res, next) {
+  res.send([{
       "name": "apple",
       "image": "apple.jpg"
     }, {
@@ -39,12 +38,13 @@ router.post('/auto', function (req, res, next) {
       "name": "applewood smoked bacon",
       "image": "raw-bacon.png"
     }]
-})
+)
 })
 
-router.post('/search', function (req, res, next) {
-  res.send({
-    "body": [{
+router.get('/search', function (req, res, next) {
+  res.send(
+    [
+      {
       "id": 556470,
       "title": "Apple fritters",
       "image": "https://spoonacular.com/recipeImages/556470-312x231.jpg",
@@ -84,11 +84,12 @@ router.post('/search', function (req, res, next) {
       "usedIngredientCount": 3,
       "missedIngredientCount": 0,
       "likes": 0
-    }]
-  })
+    }
+  ]
+  )
 })
 
-router.post('/recipe', function (req, res, next) {
+router.get('/recipe', function (req, res, next) {
   res.send({
     "vegetarian": false,
     "vegan": false,
